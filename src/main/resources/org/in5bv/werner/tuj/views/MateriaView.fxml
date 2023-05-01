@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.in5bv.werner.tuj.controllers.MateriaController">
+   <children>
+      <BorderPane layoutY="-1.0" prefHeight="700.0" prefWidth="1000.0">
+         <top>
+            <Pane id="panel-navegacion" prefHeight="200.0" prefWidth="1000.0" stylesheets="@../resources/css/EstiloMaterias.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane id="icono" prefHeight="200.0" prefWidth="167.0">
+                     <children>
+                        <Label layoutX="38.0" layoutY="20.0" text="MATERIAS" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="115.0" fitWidth="122.0" layoutX="26.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/curso.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <HBox layoutX="302.0" layoutY="36.0" prefHeight="87.0" prefWidth="597.0">
+                     <children>
+                        <VBox prefHeight="106.0" prefWidth="184.0">
+                           <children>
+                              <Button fx:id="btnNuevo" mnemonicParsing="false" onAction="#clicNuevo" prefHeight="87.0" prefWidth="174.0" styleClass="botones-crud" text="Nuevo" textFill="#2a0d70">
+                                 <graphic>
+                                    <ImageView fx:id="imgNuevo" fitHeight="75.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/images/agregar.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="106.0" prefWidth="194.0">
+                           <children>
+                              <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#clicModificar" prefHeight="87.0" prefWidth="185.0" styleClass="botones-crud" text="Modificar" textFill="#2a0d70">
+                                 <graphic>
+                                    <ImageView fx:id="imgModificar" fitHeight="75.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/images/modificar.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="122.0" prefWidth="197.0">
+                           <children>
+                              <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#clicEliminar" prefHeight="87.0" prefWidth="165.0" styleClass="botones-crud" text="Eliminar" textFill="#2a0d70">
+                                 <graphic>
+                                    <ImageView fx:id="imgEliminar" fitHeight="75.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/images/eliminar.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <GridPane layoutX="176.0" layoutY="146.0" prefHeight="30.0" prefWidth="173.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="118.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="55.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Total de datos:" textFill="#e0ebfc">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtContador" disable="true" editable="false" prefHeight="25.0" prefWidth="43.0" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <Pane id="tabla-contenido" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane layoutX="14.0" layoutY="18.0" prefHeight="465.0" prefWidth="141.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="122.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="27.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="27.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="ID:" textAlignment="CENTER">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="MATERIA:" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="CICLO ESCOLAR:" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="HORARIO INICIO:" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="HORARIO FINAL:" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="CATEDRÁTICO:" GridPane.rowIndex="10">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="SALÓN:" GridPane.rowIndex="12">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="CUPO MÍNIMO:" GridPane.rowIndex="14">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="CUPO MÁXIMO:" GridPane.rowIndex="16">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtId" disable="true" editable="false" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtMateria" disable="true" editable="false" GridPane.rowIndex="3" />
+                        <TextField fx:id="txtCatedratico" disable="true" editable="false" GridPane.rowIndex="11" />
+                        <TextField fx:id="txtSalon" disable="true" editable="false" GridPane.rowIndex="13" />
+                        <JFXTimePicker fx:id="tmpHorarioInicio" defaultColor="#2a0d70" disable="true" GridPane.rowIndex="7" />
+                        <JFXTimePicker fx:id="tmpHorarioFinal" defaultColor="#2a0d70" disable="true" GridPane.rowIndex="9" />
+                        <Spinner fx:id="spnCupoMin" disable="true" GridPane.rowIndex="15" />
+                        <Spinner fx:id="spnCupoMax" disable="true" GridPane.rowIndex="17" />
+                        <Spinner fx:id="spnCiclo" disable="true" GridPane.rowIndex="5" />
+                     </children>
+                  </GridPane>
+                  <TableView fx:id="tblMaterias" layoutX="168.0" layoutY="16.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="468.0" prefWidth="818.0">
+                    <columns>
+                      <TableColumn fx:id="colId" prefWidth="51.0" text="ID" />
+                      <TableColumn fx:id="colMateria" prefWidth="99.0" text="MATERIA" />
+                        <TableColumn fx:id="colCiclo" prefWidth="99.0" text="CICLO ESCOLAR" />
+                        <TableColumn fx:id="colHorarioInicio" prefWidth="102.0" text="HORARIO INICIO" />
+                        <TableColumn fx:id="colHorarioFinal" prefWidth="110.0" text="HORARIO FINAL" />
+                        <TableColumn fx:id="colCatedratico" prefWidth="151.0" text="CATEDRÁTICO" />
+                        <TableColumn fx:id="colSalon" prefWidth="58.0" text="SALÓN" />
+                        <TableColumn fx:id="colCupoMin" prefWidth="71.0" text="CUPO MIN." />
+                        <TableColumn fx:id="colCupoMax" prefWidth="75.0" text="CUPO MAX." />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+         </center></BorderPane>
+   </children>
+</AnchorPane>

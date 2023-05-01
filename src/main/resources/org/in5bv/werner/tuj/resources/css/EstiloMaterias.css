@@ -1,0 +1,24 @@
+/* 
+    Created on : 29/09/2022, 13:09:11
+    Author     : Werner Chacom
+*/
+
+#panel-navegacion {
+    -fx-background-color: #2A0D70;
+}
+
+#icono {
+    -fx-background-color: #0D1821;
+    -fx-background-radius: 0 0 60 60;
+}
+
+.botones-crud {
+    -fx-background-color:  #2A0D70;
+    -fx-text-fill: #E0EBFC;
+    -fx-background-radius: 0 30 0 30;
+}
+
+.botones-crud:hover {
+    -fx-background-color: #E0EBFC;
+    -fx-text-fill: #2A0D70;
+}
